@@ -1,0 +1,8 @@
+.git/
+Dockerfile
+README.*
+assets/data
+.gitignore
+__pycache__
+.DS_Store
+assets/train/

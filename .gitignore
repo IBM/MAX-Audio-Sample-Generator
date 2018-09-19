@@ -114,3 +114,4 @@ assets/data/.DS_Store
 
 #data files
 assets/data
+.pytest_cache/

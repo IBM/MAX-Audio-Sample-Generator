@@ -4,7 +4,22 @@ import scipy.io.wavfile
 import numpy
 
 
-def test_response():
+def test_metadata():
+
+    model_endpoint = 'http://localhost:5000/model/metadata'
+
+    r = requests.get(url=model_endpoint)
+    assert r.status_code == 200
+
+    metadata = r.json()
+    assert metadata['id'] == 'wavegan'
+    assert metadata['name'] == 'WaveGAN audio generation model'
+    assert metadata['description'] == 'Generative Adversarial Network, trained using TensorFlow on spoken commands '\
+                                      'and lo-fi instrumental music'
+    assert metadata['license'] == 'Apache2'
+
+
+def test_predict():
 
     model_endpoint = 'http://localhost:5000/model/predict'
 

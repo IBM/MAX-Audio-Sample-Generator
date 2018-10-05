@@ -13,7 +13,8 @@ def test_swagger():
     assert r.headers['Content-Type'] == 'application/json'
 
     json = r.json()
-    assert json['info']['title'] == 'Model Asset Exchange Server'
+    assert 'swagger' in json
+    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Server'
 
 
 def test_metadata():

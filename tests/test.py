@@ -4,6 +4,18 @@ import scipy.io.wavfile
 import numpy
 
 
+def test_swagger():
+
+    model_endpoint = 'http://localhost:5000/swagger.json'
+
+    r = requests.get(url=model_endpoint)
+    assert r.status_code == 200
+    assert r.headers['Content-Type'] == 'application/json'
+
+    json = r.json()
+    assert json['info']['title'] == 'Model Asset Exchange Server'
+
+
 def test_metadata():
 
     model_endpoint = 'http://localhost:5000/model/metadata'

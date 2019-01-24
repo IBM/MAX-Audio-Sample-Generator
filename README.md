@@ -105,15 +105,15 @@ Use the `model/predict` endpoint to generate an audio clip from one of the provi
 You can also test it on the command line. The `model/predict` endpoint returns a bytestream of the audio, which you can then direct into a file using `>`; for example:
 
 ```
- $ curl -X GET 'http://localhost:5000/model/predict' -H 'accept: audio/wav' > result.wav && open result.wav
+ $ curl -X GET 'http://localhost:5000/model/predict' -H 'accept: audio/wav' > result.wav
 ```
 
-This will save the generated `wav` file in the current directory and play the audio in the default audio player.
+This will save the generated `wav` file in the current directory.
 
 You can generate samples for different classes of audio by setting the `model` request parameter to one of: `up`, `down`, `left`, `right`, `stop`, `go` or `lofi-instrumentals` (the default). For example to generate a sample of the word `stop`:
 
 ```
-$ curl -X GET 'http://localhost:5000/model/predict?model=stop' -H 'accept: audio/wav' > stop.wav && open stop.wav
+$ curl -X GET 'http://localhost:5000/model/predict?model=stop' -H 'accept: audio/wav' > stop.wav
 ```
 
 ### 4. Development

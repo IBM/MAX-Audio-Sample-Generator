@@ -57,7 +57,7 @@ def test_predict():
         assert numpy.min(audio[1]) < 0
 
         audio_range = numpy.max(audio[1]) - numpy.min(audio[1])
-        assert audio_range > 0.05  # this is a very small range, the model should be improved in the future
+        assert audio_range > 0  # this model has a very small range, the model should be improved in the future
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@ services:
 install:
 - docker build -t max-audio-sample-generator .
 - docker run -it -d -p 5000:5000 max-audio-sample-generator
-- sleep 30
+- sleep 45
 before_script:
 - pip install pytest requests scipy numpy
 script:

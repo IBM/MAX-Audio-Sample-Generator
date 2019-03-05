@@ -9,7 +9,7 @@ RESTPLUS_MASK_SWAGGER = False
 # API metadata
 API_TITLE = 'MAX Audio Sample Generator'
 API_DESC = 'Generate short audio clips of speech commands and lo-fi instrumental samples'
-API_VERSION = '1.0.0'
+API_VERSION = '1.1.0'
 
 # default model
 MODEL_NAME = 'wavegan'

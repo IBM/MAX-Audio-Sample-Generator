@@ -14,7 +14,7 @@ def test_swagger():
 
     json = r.json()
     assert 'swagger' in json
-    assert json.get('info') and json.get('info').get('title') == 'Model Asset Exchange Server'
+    assert json.get('info') and json.get('info').get('title') == 'MAX Audio Sample Generator'
 
 
 def test_metadata():
@@ -30,6 +30,8 @@ def test_metadata():
     assert metadata['description'] == 'Generative Adversarial Network, trained using TensorFlow on spoken commands '\
                                       'and lo-fi instrumental music'
     assert metadata['license'] == 'Apache2'
+    assert metadata['type'] == 'Audio Modeling'
+    assert 'max-audio-sample-generator' in metadata['source']
 
 
 def test_predict():

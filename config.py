@@ -7,9 +7,9 @@ RESTPLUS_MASK_SWAGGER = False
 # Application settings
 
 # API metadata
-API_TITLE = 'Model Asset Exchange Server'
-API_DESC = 'An API for serving models'
-API_VERSION = '0.1'
+API_TITLE = 'MAX Audio Sample Generator'
+API_DESC = 'Generate short audio clips of speech commands and lo-fi instrumental samples'
+API_VERSION = '1.0.0'
 
 # default model
 MODEL_NAME = 'wavegan'
@@ -24,8 +24,9 @@ OUTPUT_TENSOR = 'G_z:0'
 
 MODEL_META_DATA = {
     'id': '{}'.format(MODEL_NAME.lower()),
-    'name': 'WaveGAN audio generation model'.format(MODEL_NAME),
+    'name': 'WaveGAN audio generation model',
     'description': 'Generative Adversarial Network, trained using TensorFlow on spoken commands and lo-fi instrumental music',
-    'type': 'audio-modeling',
-    'license': '{}'.format(MODEL_LICENSE)
+    'type': 'Audio Modeling',
+    'license': '{}'.format(MODEL_LICENSE),
+    'source': 'https://developer.ibm.com/exchanges/models/all/max-audio-sample-generator/'
 }

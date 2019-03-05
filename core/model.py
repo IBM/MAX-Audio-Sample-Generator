@@ -1,7 +1,9 @@
+from maxfw.model import MAXModelWrapper
+
 import tensorflow as tf
 import numpy as np
 import logging
-from config import DEFAULT_MODEL_PATH, MODELS, INPUT_TENSOR, OUTPUT_TENSOR
+from config import DEFAULT_MODEL_PATH, MODELS, INPUT_TENSOR, OUTPUT_TENSOR, MODEL_META_DATA as model_meta
 from librosa.output import write_wav
 
 logging.basicConfig()
@@ -27,8 +29,10 @@ class SingleModelWrapper(object):
         return preds
 
 
-class ModelWrapper(object):
-    """Model wrapper for TensorFlow models in SavedModel format"""
+class ModelWrapper(MAXModelWrapper):
+    
+    MODEL_META_DATA = model_meta
+
     def __init__(self, path=DEFAULT_MODEL_PATH):
         logger.info('Loading models from: {}...'.format(path))
         self.models = {}
@@ -38,7 +42,7 @@ class ModelWrapper(object):
 
         logger.info('Loaded all models')
 
-    def predict(self, model):
+    def _predict(self, model):
         logger.info('Generating audio from model: {}'.format(model))
         preds = self.models[model].predict()
         write_wav('output.wav', preds[0], 16000)

@@ -1,5 +1,4 @@
 .git/
-Dockerfile
 README.*
 assets/data
 .gitignore

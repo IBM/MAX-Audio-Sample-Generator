@@ -14,11 +14,11 @@ API_VERSION = '1.1.0'
 # default model
 MODEL_NAME = 'wavegan'
 DEFAULT_MODEL_PATH = 'assets/models'
-MODEL_LICENSE =  'Apache2'
+MODEL_LICENSE = 'Apache2'
 
 # generator model options and default
 DEFAULT_MODEL = 'lofi-instrumentals'
-MODELS = ['lofi-instrumentals','up','down','left','right','stop','go']
+MODELS = ['lofi-instrumentals', 'up', 'down', 'left', 'right', 'stop', 'go']
 INPUT_TENSOR = 'z:0'
 OUTPUT_TENSOR = 'G_z:0'
 

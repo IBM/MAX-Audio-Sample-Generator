@@ -6,7 +6,7 @@
 This repository contains code to instantiate and deploy an audio generation model. The model generates short samples
 based on an existing dataset of audio clips. It maps the sample space of the input data and generates audio clips that
 are "inbetween" or "combinations" of the dominant features of the sounds. The model architecture is a generative
-adversarial neural network, trained by the [IBM CODAIT Team](codait.org) on lo-fi instrumental music tracks from the
+adversarial neural network, trained by the [IBM CODAIT Team](http://codait.org) on lo-fi instrumental music tracks from the
 [Free Music Archive](http://freemusicarchive.org) and short spoken commands from the
 [Speech Commands Dataset](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html). The model can
 generate 1.5 second audio samples of the words `up`, `down`, `left`, `right`, `stop`, `go`, as well as lo-fi

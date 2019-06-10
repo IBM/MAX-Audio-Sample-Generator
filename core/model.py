@@ -47,7 +47,7 @@ class ModelWrapper(MAXModelWrapper):
         preds = self.models[model].predict()
 
         # convert audio to 16 bit so that it can play in firefox
-        audio_data = np.round(preds[0] * 32767)
+        audio_data = np.round(preds[0] * np.iinfo(np.int16).max)
         audio_data = audio_data.astype(np.int16)
 
         scipy.io.wavfile.write("output.wav", 16000, audio_data)

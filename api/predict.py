@@ -1,5 +1,5 @@
 from core.model import ModelWrapper
-from maxfw.core import MAX_API, PredictAPI
+from maxfw.core import MAX_API, CustomMAXAPI
 from flask import make_response
 from config import DEFAULT_MODEL, MODELS
 
@@ -8,14 +8,14 @@ input_parser = MAX_API.parser()
 input_parser.add_argument('model', type=str, default=DEFAULT_MODEL, choices=MODELS)
 
 
-class ModelPredictAPI(PredictAPI):
+class ModelPredictAPI(CustomMAXAPI):
 
     model_wrapper = ModelWrapper()
 
     @MAX_API.doc(produces=['audio/wav'])
     @MAX_API.expect(input_parser)
     def get(self):
-        """Make a prediction given input data"""
+        """Generate audio file"""
         args = input_parser.parse_args()
         model = args['model']
         _ = self.model_wrapper.predict(model)

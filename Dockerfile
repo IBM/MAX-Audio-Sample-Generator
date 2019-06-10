@@ -1,7 +1,7 @@
-FROM codait/max-base:v1.1.1
+FROM codait/max-base:v1.1.3
 
 # Fill in these with a link to the bucket containing the model and the model file name
-ARG model_bucket=http://max-assets.s3.us.cloud-object-storage.appdomain.cloud/max-audio-sample-generator
+ARG model_bucket=https://max-assets.s3.us.cloud-object-storage.appdomain.cloud/max-audio-sample-generator
 ARG model_files=models.tar.gz
 
 WORKDIR /workspace

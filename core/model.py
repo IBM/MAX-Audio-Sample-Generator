@@ -1,10 +1,9 @@
 from maxfw.model import MAXModelWrapper
-
 import tensorflow as tf
 import numpy as np
 import logging
 from config import DEFAULT_MODEL_PATH, MODELS, INPUT_TENSOR, OUTPUT_TENSOR, MODEL_META_DATA as model_meta
-from librosa.output import write_wav
+import scipy.io.wavfile
 
 logging.basicConfig()
 logger = logging.getLogger()
@@ -46,6 +45,11 @@ class ModelWrapper(MAXModelWrapper):
     def _predict(self, model):
         logger.info('Generating audio from model: {}'.format(model))
         preds = self.models[model].predict()
-        write_wav('output.wav', preds[0], 16000)
+
+        # convert audio to 16 bit so that it can play in firefox
+        audio_data = np.round(preds[0] * np.iinfo(np.int16).max)
+        audio_data = audio_data.astype(np.int16)
+
+        scipy.io.wavfile.write("output.wav", 16000, audio_data)
         wav_bytes = open('output.wav')
         return wav_bytes

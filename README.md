@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.com/IBM/MAX-Audio-Sample-Generator.svg?branch=master)](https://travis-ci.com/IBM/MAX-Audio-Sample-Generator)
 [![Website Status](https://img.shields.io/website/http/max-audio-sample-generator.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-audio-sample-generator.max.us-south.containers.appdomain.cloud/)
 
+[<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
+
 # IBM Developer Model Asset Exchange: Audio Sample Generator
 
 This repository contains code to instantiate and deploy an audio generation model. The model generates short samples
@@ -15,7 +17,7 @@ instrumental music.
 The model is based on the [WaveGAN Model](https://github.com/chrisdonahue/wavegan). The model files are hosted on
 [IBM Cloud Object Storage](https://max-assets.s3.us.cloud-object-storage.appdomain.cloud/max-audio-sample-generator/models.tar.gz).
 The code in this repository deploys the model as a web service in a Docker container. This repository was developed as
-part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/).
+part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM)..
 
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
@@ -70,6 +72,8 @@ $ kubectl apply -f https://github.com/IBM/MAX-Audio-Sample-Generator/raw/master/
 ```
 
 The model will be available internally at port `5000`, but can also be accessed externally through the `NodePort`.
+
+A more elaborate tutorial on how to deploy this MAX model to production on [IBM Cloud](https://ibm.biz/Bdz2XM) can be found [here](http://ibm.biz/max-to-ibm-cloud-tutorial).
 
 ## Run Locally
 

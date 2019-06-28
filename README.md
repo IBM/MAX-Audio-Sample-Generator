@@ -15,7 +15,7 @@ generate 1.5 second audio samples of the words `up`, `down`, `left`, `right`, `s
 instrumental music.
 
 The model is based on the [WaveGAN Model](https://github.com/chrisdonahue/wavegan). The model files are hosted on
-[IBM Cloud Object Storage](https://max-assets.s3.us.cloud-object-storage.appdomain.cloud/max-audio-sample-generator/models.tar.gz).
+[IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-audio-sample-generator/1.0.0/assets.tar.gz).
 The code in this repository deploys the model as a web service in a Docker container. This repository was developed as
 part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM)..
 

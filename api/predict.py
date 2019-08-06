@@ -34,9 +34,9 @@ class ModelPredictAPI(CustomMAXAPI):
         """Generate audio file"""
         args = input_parser.parse_args()
         model = args['model']
-        _ = self.model_wrapper.predict(model)
+        audio_data = self.model_wrapper.predict(model)
 
-        response = make_response(open('output.wav', 'rb').read())
+        response = make_response(audio_data)
         response.headers.set('Content-Type', 'audio/wav')
         response.headers.set('Content-Disposition', 'attachment', filename='result.wav')
 

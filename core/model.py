@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+import io
 from maxfw.model import MAXModelWrapper
 import tensorflow as tf
 import numpy as np
@@ -66,6 +67,7 @@ class ModelWrapper(MAXModelWrapper):
         audio_data = np.round(preds[0] * np.iinfo(np.int16).max)
         audio_data = audio_data.astype(np.int16)
 
-        scipy.io.wavfile.write("output.wav", 16000, audio_data)
-        wav_bytes = open('output.wav')
-        return wav_bytes
+        wav_bytes = io.BytesIO()
+
+        scipy.io.wavfile.write(wav_bytes, 16000, audio_data)
+        return wav_bytes.read()

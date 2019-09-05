@@ -33,7 +33,7 @@ before_script:
 script:
   - pytest tests/test.py
 after_success:
-  - if [[ "$IMAGE" != "test" && "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ]]; then
+  - if [[ "$IMAGE" != "pipTestOnly" && "$TRAVIS_PULL_REQUEST" == "false" ]] && [[ "$TRAVIS_BRANCH" == "master" || "$TRAVIS_BRANCH" == "$TRAVIS_TAG" ]]; then
       echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin;
       docker push codait/max-audio-sample-generator:"$IMAGE"-"$ARCH"-"$VERSION";
     fi
@@ -41,7 +41,7 @@ after_success:
 matrix:
   include:
   - os: linux
-    env: DOCKERFILE=Dockerfile IMAGE=test ARCH=x86_64
+    env: DOCKERFILE=Dockerfile IMAGE=pipTestOnly ARCH=x86_64
   - os: linux
     env: DOCKERFILE=Dockerfile.pai IMAGE=powerai ARCH=x86_64
   - os: linux-ppc64le
@@ -56,7 +56,8 @@ matrix:
     before_script:
     script:
       - export DOCKER_CLI_EXPERIMENTAL=enabled
+      - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin;
       - docker pull codait/max-audio-sample-generator:powerai-ppc64le-"$VERSION";
       - docker pull codait/max-audio-sample-generator:powerai-x86_64-"$VERSION";
       - docker manifest create codait/max-audio-sample-generator:powerai-"$VERSION" codait/max-audio-sample-generator:powerai-ppc64le-"$VERSION" codait/max-audio-sample-generator:powerai-x86_64-"$VERSION";
-      - docker manifest push codait/max-audio-sample-generator:powerai-"$VERSION"
+      - docker manifest push codait/max-audio-sample-generator:powerai-"$VERSION";

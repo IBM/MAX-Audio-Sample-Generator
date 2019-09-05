@@ -9,11 +9,13 @@ RUN ["/bin/bash", "-c", "cd /opt/anaconda3/bin && source activate base && IBM_PO
 
 WORKDIR /workspace
 
-RUN wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=assets/${model_file}
-RUN tar -x -C assets/ -f assets/${model_file} -v && rm assets/${model_file}
+RUN wget -nv --show-progress --progress=bar:force:noscroll ${model_bucket}/${model_file} --output-document=assets/${model_file} && \
+  tar -x -C assets/ -f assets/${model_file} -v && rm assets/${model_file}
 
-COPY . /workspace
-RUN md5sum -c md5sums.txt # check file integrity
+COPY . .
+
+# check file integrity
+RUN md5sum -c md5sums.txt
 
 EXPOSE 5000
 

@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/IBM/MAX-Audio-Sample-Generator.svg?branch=master)](https://travis-ci.com/IBM/MAX-Audio-Sample-Generator)
-[![Website Status](https://img.shields.io/website/http/max-audio-sample-generator.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-audio-sample-generator.max.us-south.containers.appdomain.cloud/)
+[![Website Status](https://img.shields.io/website/http/max-audio-sample-generator.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-audio-sample-generator.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud)
 
 [<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
 
@@ -15,7 +15,7 @@ generate 1.5 second audio samples of the words `up`, `down`, `left`, `right`, `s
 instrumental music.
 
 The model is based on the [WaveGAN Model](https://github.com/chrisdonahue/wavegan). The model files are hosted on
-[IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-audio-sample-generator/1.0.0/assets.tar.gz).
+[IBM Cloud Object Storage](https://max-cdn.cdn.appdomain.cloud/max-audio-sample-generator/1.0.0/assets.tar.gz).
 The code in this repository deploys the model as a web service in a Docker container. This repository was developed as
 part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM)..
 
@@ -55,7 +55,7 @@ part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/excha
 
 To run the docker image, which automatically starts the model serving API, run:
 
-```
+```bash
 $ docker run -it -p 5000:5000 codait/max-audio-sample-generator
 ```
 
@@ -72,7 +72,7 @@ You can also deploy the model on Kubernetes using the latest docker image on Doc
 
 On your Kubernetes cluster, run the following commands:
 
-```
+```bash
 $ kubectl apply -f https://github.com/IBM/MAX-Audio-Sample-Generator/raw/master/max-audio-sample-generator.yaml
 ```
 
@@ -92,19 +92,19 @@ A more elaborate tutorial on how to deploy this MAX model to production on [IBM 
 
 Clone this repository locally. In a terminal, run the following command:
 
-```
+```bash
 $ git clone https://github.com/IBM/MAX-Audio-Sample-Generator.git
 ```
 
 Change directory into the repository base folder:
 
-```
+```bash
 $ cd MAX-Audio-Sample-Generator
 ```
 
 To build the docker image locally, run: 
 
-```
+```bash
 $ docker build -t max-audio-sample-generator .
 ```
 
@@ -116,7 +116,7 @@ support for GPU images later).
 
 To run the docker image, which automatically starts the model serving API, run:
 
-```
+```bash
 $ docker run -it -p 5000:5000 max-audio-sample-generator
 ```
 
@@ -132,7 +132,7 @@ the Swagger UI.
 You can also test it on the command line. The `model/predict` endpoint returns a bytestream of the audio, which you can
 then direct into a file using `>`; for example:
 
-```
+```bash
  $ curl -X GET 'http://localhost:5000/model/predict' -H 'accept: audio/wav' > result.wav
 ```
 
@@ -140,7 +140,7 @@ This will save the generated `wav` file in the current directory.
 
 You can generate samples for different classes of audio by setting the `model` request parameter to one of: `up`, `down`, `left`, `right`, `stop`, `go` or `lofi-instrumentals` (the default). For example to generate a sample of the word `stop`:
 
-```
+```bash
 $ curl -X GET 'http://localhost:5000/model/predict?model=stop' -H 'accept: audio/wav' > stop.wav
 ```
 

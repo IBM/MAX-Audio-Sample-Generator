@@ -85,8 +85,8 @@ A more elaborate tutorial on how to deploy this MAX model to production on [IBM 
 1. [Build the Model](#1-build-the-model)
 2. [Deploy the Model](#2-deploy-the-model)
 3. [Use the Model](#3-use-the-model)
-4. [Development](#5-development)
-5. [Clean Up](#6-cleanup)
+4. [Development](#4-development)
+5. [Clean Up](#5-cleanup)
 
 ### 1. Build the Model
 

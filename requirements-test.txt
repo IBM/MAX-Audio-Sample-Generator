@@ -1,0 +1,6 @@
+pytest
+requests
+scipy
+numpy
+flake8
+bandit

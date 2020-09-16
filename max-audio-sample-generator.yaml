@@ -43,6 +43,6 @@ spec:
     spec:
       containers:
       - name: max-audio-sample-generator
-        image: codait/max-audio-sample-generator:latest
+        image: quay.io/codait/max-audio-sample-generator:latest
         ports:
         - containerPort: 5000

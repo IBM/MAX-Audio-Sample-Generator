@@ -46,7 +46,7 @@ part of the [IBM Code Model Asset Exchange](https://developer.ibm.com/code/excha
 
 # Deployment options
 
-* [Deploy from Quay Hub](#deploy-from-quay)
+* [Deploy from Quay](#deploy-from-quay)
 * [Deploy on Red Hat OpenShift](#deploy-on-red-hat-openshift)
 * [Deploy on Kubernetes](#deploy-on-kubernetes)
 * [Run Locally](#run-locally)

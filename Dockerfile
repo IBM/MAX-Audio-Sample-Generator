@@ -14,22 +14,20 @@
 # limitations under the License.
 #
 
-FROM quay.io/codait/max-base:v1.3.2
+FROM quay.io/codait/max-base:v1.4.0
 
 # Fill in these with a link to the bucket containing the model and the model file name
 ARG model_bucket=https://max-cdn.cdn.appdomain.cloud/max-audio-sample-generator/1.0.0
 ARG model_files=assets.tar.gz
 
-WORKDIR /workspace
-
 # Get model archive and unzip it to assets folder
 RUN wget -nv ${model_bucket}/${model_files} --output-document=assets/${model_files} --show-progress --progress=bar:force:noscroll && \
   tar -x -C assets/ -f assets/${model_files} -v && rm assets/${model_files}
 
-COPY requirements.txt /workspace
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . /workspace
+COPY . .
 
 # check file integrity
 RUN sha512sum -c sha512sums.txt

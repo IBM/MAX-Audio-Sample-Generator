@@ -1,5 +1,5 @@
 pytest==6.1.2
-requests==2.25.0
+requests==2.31.0
 scipy==1.5.4
 numpy==1.19.4
 flake8==3.8.4
